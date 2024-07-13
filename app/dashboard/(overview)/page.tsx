@@ -5,13 +5,16 @@ import { lusitana } from "../../ui/fonts";
 import { fetchLatestInvoices, fetchCardData } from "../../lib/data";
 import { Suspense } from "react";
 import { RevenueChartSkeleton, LatestInvoicesSkeleton, CardsSkeleton } from "@/app/ui/skeletons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard",
+}
 
 export default async function Page() {
 
-
-
     return (
-        <main>
+        <main className="w-full">
             <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
             Dashboard
             </h1>

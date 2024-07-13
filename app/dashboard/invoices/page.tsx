@@ -7,6 +7,11 @@ import { fetchInvoicesPages } from "@/app/lib/data";
 import { lusitana } from "@/app/ui/fonts";
 import { InvoicesTableSkeleton } from "@/app/ui/skeletons";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: 'Invoices',
+}
 
 
 
@@ -25,9 +30,9 @@ export default async function Page({searchParams}: {searchParams?: {query?: stri
                 <Search placeholder="Search invoices..."/>
                 <CreateInvoice />
             </div>
-                <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-                    <Table query={query} currentPage={currentPage} />
-                </Suspense>
+            <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
+                <Table query={query} currentPage={currentPage} />
+            </Suspense>
             <div className="mt-5 flex w-full justify-center">
                 <Pagination totalPages={totalPages} />
             </div>
